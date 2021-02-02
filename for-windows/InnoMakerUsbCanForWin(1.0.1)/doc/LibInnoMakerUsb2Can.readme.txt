@@ -1,0 +1,126 @@
+    /// <summary>
+    /// Device Instance
+    /// </summary>
+    public class InnoMakerDevice
+    {
+        public bool isOpen = false;
+        public UsbDevice InnoMakerDev;
+        public String deviceId = "";
+        public UsbRegistry usbReg;
+    }
+
+        /// <summary>
+        /// Host Frame
+        /// </summary>
+        public struct innomaker_host_frame
+        {
+            public UInt32 echo_id;
+            public UInt32 can_id;
+            public Byte can_dlc;
+            public Byte channel;
+            public Byte flags;
+            public Byte reserved;
+
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+            public Byte[] data;
+        }
+
+        /// <summary>
+        /// Bittming 
+        /// </summary>
+        public struct innomaker_device_bittming
+        {
+            public UInt32 prop_seg;
+            public UInt32 phase_seg1;
+            public UInt32 phase_seg2;
+            public UInt32 sjw;
+            public UInt32 brp;
+        }
+
+        /// <summary>
+        /// Usb Can Mode
+        /// </summary>
+        public enum UsbCanMode
+        {
+            UsbCanModeNormal,
+            UsbCanModeLoopback,
+            UsbCanModeListenOnly,
+        }
+
+        /// <summary>
+        /// Add Device Notify
+        /// </summary>
+        public delegate void AddDeviceNotifyDelegate();
+
+        /// <summary>
+        /// Remove Device Notify
+        /// </summary>
+        public delegate void RemoveDeviceNotifyDelegate();
+
+        /// <summary>
+        /// Scan Inno Maker Devices
+        /// </summary>
+        /// <returns></returns>
+        public bool scanInnoMakerDevices()
+
+        /// <summary>
+        /// Get Device Count
+        /// </summary>
+        /// <returns></returns>
+        public int getInnoMakerDeviceCount()
+
+       /// <summary>
+        /// Open Device
+        /// </summary>
+        /// <param name="device">device instance</param>
+        /// <returns>if open return true, else false</returns>
+        public bool openInnoMakerDevice(InnoMakerDevice device)
+        
+        /// <summary>
+        /// Close Device
+        /// </summary>
+        /// <param name="device">device instance</param>
+        /// <returns>if close,return true,else return false</returns>
+        public bool closeInnoMakerDevice(InnoMakerDevice device)
+
+        /// <summary>
+        /// Get Device Instance
+        /// </summary>
+        /// <param name="devIndex">Device index</param>
+        /// <returns>Device Instance</returns>
+        public InnoMakerDevice getInnoMakerDevice(int devIndex)
+
+        /// <summary>
+        /// Read Buffer from device
+        /// </summary>
+        /// <param name="device">Device instance</param>
+        /// <param name="buf">read buffer</param>
+        /// <param name="size">read buffer size</param>
+        /// <returns>if read device success,return true,else return false</returns>
+        public bool getInnoMakerDeviceBuf(InnoMakerDevice device, Byte[] buf, int size)
+
+        /// <summary>
+        /// Send buffer to device
+        /// </summary>
+        /// <param name="device">Device instance</param>
+        /// <param name="buf">Buffer to send</param>
+        /// <param name="size">send buffer size</param>
+        /// <returns></returns>
+        public bool sendInnoMakerDeviceBuf(InnoMakerDevice device, Byte[] buf, int size)
+
+        /// <summary>
+        /// Reset Device
+        /// </summary>
+        /// <param name="device">Device instance</param>
+        /// <returns>if reset success,return true else return false</returns>
+        public bool UrbResetDevice(InnoMakerDevice device)
+
+        /// <summary>
+        /// Set up device
+        /// </summary>
+        /// <param name="device">Device instance</param>
+        /// <param name="canMode">device can mode</param>
+        /// <param name="bittming">device can bittming</param>
+        /// <returns>if setup success return true,else return false</returns>
+        public bool UrbSetupDevice(InnoMakerDevice device, UsbCanMode canMode, innomaker_device_bittming bittming)
+       
