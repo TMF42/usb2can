@@ -1,0 +1,8 @@
+This project is VS2019 project (requires dotnet 4.7.2
+framework).
+
+It was offered by steve robinson, a warm-hearted and high-level USB2CAN user.
+Thanks so much for his kindly sharing.
+
+Website: www.theproductshop.net
+
